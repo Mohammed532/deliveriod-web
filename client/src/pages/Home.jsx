@@ -8,7 +8,9 @@ function Home({socket}) {
     const handleKeyDown = (e) => {
         if (e.key === 'w' || e.key === 'ArrowUp'){
             console.log('forward')
-            socket.emit('forward', null)
+            socket.emit('forward', {
+		sid: `${socket.id}`,
+	    })
         }
     }
 
