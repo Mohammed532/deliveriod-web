@@ -1,22 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import socketIO from 'socket.io-client'
+import Home from './pages/Home.jsx'
 import './App.css'
 
-const handleKeyDown = (e) => {
-	if (e.key === 'W' || e.key === 'ArrowUp'){
-		console.log('hit')
-		//emit code
-	}
-}
+const socket = socketIO.connect('http://localhost:3030')
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div onKeyDown={handleKeyDown} >
-
-    </div>
+    <>
+      <Home socket={socket} />
+    </>
   )
 }
 
